@@ -103,25 +103,25 @@ public class Main {
         dia= quitarAcentoYPasarAMinuscula(dia);
         switch (dia) {
             case "lunes":
-                esLaboralONo = "Laboral";
+                esLaboralONo = "El Lunes es laboral";
                 break;
             case "martes":
-                esLaboralONo = "Laboral";
+                esLaboralONo = "El martes es laboral";
                 break;
             case "miercoles":
-                esLaboralONo = "Laboral";
+                esLaboralONo = "el miercoles es Laboral";
                 break;
             case "jueves":
-                esLaboralONo = "Laboral";
+                esLaboralONo = "el jueves es Laboral";
                 break;
             case "vienes":
-                esLaboralONo = "Laboral";
+                esLaboralONo = "el viernes es Laboral";
                 break;
             case "sabado":
-                esLaboralONo = "No Laboral";
+                esLaboralONo = "el sababado No es Laboral";
                 break;
             case "domingo":
-                esLaboralONo = "No Laboral";
+                esLaboralONo = "el domingo No es Laboral";
                 break;
             default:
                 esLaboralONo = "No ingreso un dia, por favor intente nuevamente";
@@ -191,6 +191,16 @@ public class Main {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/YYYY hh:mm:ss");
         String dateString=sdf.format(cal.getTime());
         return dateString;
+    }
+    //funcion del ejercicio 14
+    public static void numerosDeDosEnDosHastaMil(int num){
+        if(num>0 && num<=1000){
+            for (int numero = num; numero <1001; numero+=2) {
+                System.out.println("numero: "+numero);
+            }
+        }else {
+            System.out.println("Por favor ingrese un numero de 1 a 1000.");
+        }
     }
     public static void main(String[] args) {
         int seleccion;
@@ -303,6 +313,13 @@ public class Main {
                     System.out.println("fecha y hora actual: "+verFechaHoraActual());
                     break;
                 case 14:
+                    try {
+                        System.out.print("Ingrese un numero: ");
+                        int num=scanner.nextInt();
+                        numerosDeDosEnDosHastaMil(num);
+                    }catch (Exception e){
+                        System.out.println("ocurrio un error " + e + " Posiblemente porque no ingreso un numero");
+                    }
                     break;
                 case 15:
                     break;
