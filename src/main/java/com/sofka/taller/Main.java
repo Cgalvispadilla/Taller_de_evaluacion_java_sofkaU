@@ -163,6 +163,26 @@ public class Main {
             System.out.println("No es posible realizar la funcionalidad con una sola palabra o letra, necesita una frase:)");
         }
     }
+    //función para encontrar las deferencia entre dos palabras
+    public static String diferenciaEntreDosPalabras(String palabra1, String palabra2) {
+        int[] caracteres = new int[26];
+        for (char c : palabra1.toCharArray()) {
+            caracteres[c-'a']=1;
+        }
+        for (char c : palabra2.toCharArray()) {
+            caracteres[c-'a']=1;
+        }
+        StringBuilder diferencia = new StringBuilder(26);
+        for (int i = 0; i < caracteres.length; i++) {
+            if (caracteres[i] > 0)
+                diferencia.append ((char)(i+'a'));
+        }
+        return diferencia.toString();
+    }
+    //funcion del ejercicio 12
+    public static Boolean palabrasIguales(String palabra1, String palabra2){
+        return palabra1.equals(palabra2)?true:false;
+    }
     public static void main(String[] args) {
         int seleccion;
         String entrada;
@@ -260,6 +280,15 @@ public class Main {
                     logitudYVocalesDeUnaFrase(entrada);
                     break;
                 case 12:
+                    System.out.print("ingrese una palabra: ");
+                    String palabra1=scanner.next();
+                    System.out.print("ingrese otra palabra: ");
+                    String palabra2=scanner.next();
+                    if (palabrasIguales(palabra1,palabra2)){
+                        System.out.println("Las palabras son iguales");
+                    }else {
+                        System.out.println("las palabras son diferentes y tienen las siguentes letras distintas "+diferenciaEntreDosPalabras(palabra1,palabra2));
+                    }
                     break;
                 case 13:
                     break;
