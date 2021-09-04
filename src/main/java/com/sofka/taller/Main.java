@@ -34,6 +34,16 @@ public class Main {
             return 0;
         }
     }
+    //función del ejercio 4
+    public static double precioFinalProductoConIva(double precio){
+        final double IVA = 0.21;
+        if(precio>0) {
+            double precioTotal = precio + (precio * IVA);
+            return precioTotal;
+        }else {
+            return 0;
+        }
+    }
 
     public static void main(String[] args) {
         int seleccion;
@@ -43,7 +53,7 @@ public class Main {
             System.out.println("1- Ejercicio 1\n2- Ejercicio 2\n3- Ejercicio 3\n4- Ejercicio 4\n5- Ejercicio 5" +
                     "\n6- Ejercicio 6\n7- Ejercicio 7\n8- Ejercicio 8\n9- Ejercicio 9\n10- Ejercicio 10" +
                     "\n11- Ejercicio 11\n12- Ejercicio 12\n13- Ejercicio 13\n14- Ejercicio 14\n15- Ejercicio 15" +
-                    "\n16- Ejercicio 16\n17- Ejercicio 2\n18- Ejercicio 18\n19- Salir");
+                    "\n16- Ejercicio 16\n17- Ejercicio 17\n18- Ejercicio 18\n19- Salir");
             Scanner scanner = new Scanner(System.in);
             seleccion = scanner.nextInt();
 
@@ -78,6 +88,21 @@ public class Main {
                     }
                     break;
                 case 4:
+                    try {
+                        System.out.print("ingrese el precio del producto: ");
+                        entrada = scanner.next();
+                        entrada= entrada.replace(",",".");
+                        double precioProducto= Double.parseDouble(entrada);
+                        double precioFinalProducto=precioFinalProductoConIva(precioProducto);
+                        if(precioFinalProducto>0){
+                            System.out.println("El precio total con iva aplicado del producto es: "+precioFinalProducto);
+                        }else {
+                            System.out.println("no es posible calcular el precio de un producto si ingresa 0 o un numero negativo");
+                        }
+
+                    }catch (Exception e){
+                        System.out.println("ocurrio un error " +e+" Posiblemente porque no ingreso un numero");
+                    }
                     break;
                 case 5:
                     break;
