@@ -1,5 +1,7 @@
 package com.sofka.taller;
 import java.text.Normalizer;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Scanner;
 
 
@@ -163,7 +165,7 @@ public class Main {
             System.out.println("No es posible realizar la funcionalidad con una sola palabra o letra, necesita una frase:)");
         }
     }
-    //función para encontrar las deferencia entre dos palabras
+    //función para encontrar las deferencia entre dos palabras parte de la función 12
     public static String diferenciaEntreDosPalabras(String palabra1, String palabra2) {
         int[] caracteres = new int[26];
         for (char c : palabra1.toCharArray()) {
@@ -182,6 +184,13 @@ public class Main {
     //funcion del ejercicio 12
     public static Boolean palabrasIguales(String palabra1, String palabra2){
         return palabra1.equals(palabra2)?true:false;
+    }
+    //función del ejercicio 13
+    public static String verFechaHoraActual(){
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/YYYY hh:mm:ss");
+        String dateString=sdf.format(cal.getTime());
+        return dateString;
     }
     public static void main(String[] args) {
         int seleccion;
@@ -291,6 +300,7 @@ public class Main {
                     }
                     break;
                 case 13:
+                    System.out.println("fecha y hora actual: "+verFechaHoraActual());
                     break;
                 case 14:
                     break;
