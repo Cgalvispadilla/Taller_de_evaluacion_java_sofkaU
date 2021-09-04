@@ -1,5 +1,7 @@
 package com.sofka.taller;
 
+import com.sun.source.tree.DoWhileLoopTree;
+
 import java.util.Scanner;
 
 public class Main {
@@ -68,7 +70,20 @@ public class Main {
             }
         }
     }
-
+    //funcion del ejercicio 7
+    public static void numeroMayorACero(Scanner scanner){
+        int num=-1;
+        do{
+            try {
+                System.out.print("Ingrese un numero: ");
+                num= scanner.nextInt();
+                if (num>0)System.out.println(num);
+            }catch (Exception e){
+                System.out.println("Por favor ingrese solo numeros");
+                break;
+            }
+        }while (num<1);
+    }
     public static void main(String[] args) {
         int seleccion;
         String entrada;
@@ -137,6 +152,7 @@ public class Main {
                     numParesEImparesHastaCienFor();
                     break;
                 case 7:
+                    numeroMayorACero(scanner);
                     break;
                 case 8:
                     break;
