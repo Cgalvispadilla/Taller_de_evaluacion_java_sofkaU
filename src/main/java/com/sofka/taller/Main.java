@@ -15,8 +15,9 @@ public class Main {
             System.out.println("Los numeros son iguales");
         }
     }
+
     //función ejercicio 2
-    public static void esMayor(int num1,int num2){
+    public static void esMayor(int num1, int num2) {
         if (num1 > num2) {
             System.out.println("El numero " + num1 + " es mayor a " + num2);
         } else if (num1 < num2) {
@@ -25,26 +26,38 @@ public class Main {
             System.out.println("Los numeros son iguales");
         }
     }
+
     //función del ejercicio 3
-    public static double areaCirculo(double radio){
-        if (radio>0) {
+    public static double areaCirculo(double radio) {
+        if (radio > 0) {
             double area = Math.PI * Math.pow(radio, 2);
             return area;
-        }else {
-            return 0;
-        }
-    }
-    //función del ejercio 4
-    public static double precioFinalProductoConIva(double precio){
-        final double IVA = 0.21;
-        if(precio>0) {
-            double precioTotal = precio + (precio * IVA);
-            return precioTotal;
-        }else {
+        } else {
             return 0;
         }
     }
 
+    //función del ejercicio 4
+    public static double precioFinalProductoConIva(double precio) {
+        final double IVA = 0.21;
+        if (precio > 0) {
+            return precio + (precio * IVA);
+        } else {
+            return 0;
+        }
+    }
+    //funcion del ejercicio 5
+    public  static void numParesEImparesHastaCienWhile(){
+        int i=1;
+        while (i<100){
+            if (i%2==0){
+                System.out.println("el numero "+i+" es par");
+            }else {
+                System.out.println("el numero "+i+" es impar");
+            }
+            i++;
+        }
+    }
     public static void main(String[] args) {
         int seleccion;
         String entrada;
@@ -65,46 +78,47 @@ public class Main {
                 case 2:
                     try {
                         System.out.print("Ingrese el primer valor: ");
-                        double num1= scanner.nextInt();
+                        double num1 = scanner.nextInt();
                         System.out.print("Ingrese el primer valor: ");
-                        double num2= scanner.nextInt();
-                        esMayor((int)num1,(int) num2);
-                    }catch (Exception e){
-                        System.out.println("ocurrio un error " +e+" Posiblemente porque no ingreso un numero");
+                        double num2 = scanner.nextInt();
+                        esMayor((int) num1, (int) num2);
+                    } catch (Exception e) {
+                        System.out.println("ocurrio un error " + e + " Posiblemente porque no ingreso un numero");
                     }
                     break;
                 case 3:
                     try {
                         System.out.print("Ingrese el valor del radio: ");
-                        double radio= scanner.nextDouble();
-                        double area= areaCirculo(radio);
-                        if(area>0){
-                            System.out.println("el area de"+radio+" es "+area);
-                        }else {
+                        double radio = scanner.nextDouble();
+                        double area = areaCirculo(radio);
+                        if (area > 0) {
+                            System.out.println("el area de" + radio + " es " + area);
+                        } else {
                             System.out.println("Un radio nunca puede ser 0 o menor a cero");
                         }
-                    }catch (Exception e){
-                        System.out.println("ocurrio un error " +e+" Posiblemente porque no ingreso un numero");
+                    } catch (Exception e) {
+                        System.out.println("ocurrio un error " + e + " Posiblemente porque no ingreso un numero");
                     }
                     break;
                 case 4:
                     try {
                         System.out.print("ingrese el precio del producto: ");
                         entrada = scanner.next();
-                        entrada= entrada.replace(",",".");
-                        double precioProducto= Double.parseDouble(entrada);
-                        double precioFinalProducto=precioFinalProductoConIva(precioProducto);
-                        if(precioFinalProducto>0){
-                            System.out.println("El precio total con iva aplicado del producto es: "+precioFinalProducto);
-                        }else {
+                        entrada = entrada.replace(",", ".");
+                        double precioProducto = Double.parseDouble(entrada);
+                        double precioFinalProducto = precioFinalProductoConIva(precioProducto);
+                        if (precioFinalProducto > 0) {
+                            System.out.println("El precio total con iva aplicado del producto es: " + precioFinalProducto);
+                        } else {
                             System.out.println("no es posible calcular el precio de un producto si ingresa 0 o un numero negativo");
                         }
 
-                    }catch (Exception e){
-                        System.out.println("ocurrio un error " +e+" Posiblemente porque no ingreso un numero");
+                    } catch (Exception e) {
+                        System.out.println("ocurrio un error " + e + " Posiblemente porque no ingreso un numero");
                     }
                     break;
                 case 5:
+                    numParesEImparesHastaCienWhile();
                     break;
                 case 6:
                     break;
