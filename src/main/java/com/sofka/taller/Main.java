@@ -129,11 +129,24 @@ public class Main {
 
     //función del ejercicio 9
     public static String reemplazarYConcatenar(String miMensaje){
-        String texto="La sonrisa sera la mejor arma contra la tristeza";
-        texto=texto.replace("a","e");
-        return texto+" "+miMensaje;
+        if(miMensaje.length()>1) {
+            String texto = "La sonrisa sera la mejor arma contra la tristeza";
+            texto = texto.replace("a", "e");
+            return texto + " " + miMensaje;
+        }else {
+            return "No es posible realizar la funcionalidad con una sola palabra o letra, necesita una frase:)";
+        }
     }
 
+
+    //funcion del ejecicio 10
+    public static String eliminarEspacioEnTexto(String frase){
+        if(frase.length()>1) {
+            return frase.replace(" ", "");
+        }else {
+            return "No es posible realizar la funcionalidad con una sola palabra o letra, necesita una frase:)";
+        }
+    }
     public static void main(String[] args) {
         int seleccion;
         String entrada;
@@ -214,10 +227,14 @@ public class Main {
                     scanner.useDelimiter("\n");
                     System.out.print("Ingrese una frase por favor: ");
                     entrada=scanner.next();
-                    System.out.println(entrada);
                     System.out.println(reemplazarYConcatenar(entrada));
                     break;
                 case 10:
+                    //configuramos scanner para que nos pueda leer una frase :)
+                    scanner.useDelimiter("\n");
+                    System.out.print("Ingrese una frase por favor: ");
+                    entrada=scanner.next();
+                    System.out.println(eliminarEspacioEnTexto(entrada));
                     break;
                 case 11:
                     break;
