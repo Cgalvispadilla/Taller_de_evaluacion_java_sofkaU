@@ -25,8 +25,15 @@ public class Main {
             System.out.println("Los numeros son iguales");
         }
     }
-
-
+    //función del ejercicio 3
+    public static double areaCirculo(double radio){
+        if (radio>0) {
+            double area = Math.PI * Math.pow(radio, 2);
+            return area;
+        }else {
+            return 0;
+        }
+    }
 
     public static void main(String[] args) {
         int seleccion;
@@ -36,7 +43,7 @@ public class Main {
             System.out.println("1- Ejercicio 1\n2- Ejercicio 2\n3- Ejercicio 3\n4- Ejercicio 4\n5- Ejercicio 5" +
                     "\n6- Ejercicio 6\n7- Ejercicio 7\n8- Ejercicio 8\n9- Ejercicio 9\n10- Ejercicio 10" +
                     "\n11- Ejercicio 11\n12- Ejercicio 12\n13- Ejercicio 13\n14- Ejercicio 14\n15- Ejercicio 15" +
-                    "\n16- Ejercicio 1\n17- Ejercicio 2\n18- Ejercicio 18\n19- Salir");
+                    "\n16- Ejercicio 16\n17- Ejercicio 2\n18- Ejercicio 18\n19- Salir");
             Scanner scanner = new Scanner(System.in);
             seleccion = scanner.nextInt();
 
@@ -48,15 +55,27 @@ public class Main {
                 case 2:
                     try {
                         System.out.print("Ingrese el primer valor: ");
-                        int num1= scanner.nextInt();
+                        double num1= scanner.nextInt();
                         System.out.print("Ingrese el primer valor: ");
-                        int num2= scanner.nextInt();
-                        esMayor(num1, num2);
+                        double num2= scanner.nextInt();
+                        esMayor((int)num1,(int) num2);
                     }catch (Exception e){
                         System.out.println("ocurrio un error " +e+" Posiblemente porque no ingreso un numero");
                     }
                     break;
                 case 3:
+                    try {
+                        System.out.print("Ingrese el valor del radio: ");
+                        double radio= scanner.nextDouble();
+                        double area= areaCirculo(radio);
+                        if(area>0){
+                            System.out.println("el area de"+radio+" es "+area);
+                        }else {
+                            System.out.println("Un radio nunca puede ser 0 o menor a cero");
+                        }
+                    }catch (Exception e){
+                        System.out.println("ocurrio un error " +e+" Posiblemente porque no ingreso un numero");
+                    }
                     break;
                 case 4:
                     break;
