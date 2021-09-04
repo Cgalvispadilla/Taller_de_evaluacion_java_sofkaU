@@ -1,8 +1,7 @@
 package com.sofka.taller;
-
-import com.sun.source.tree.DoWhileLoopTree;
-
+import java.text.Normalizer;
 import java.util.Scanner;
+
 
 public class Main {
     //función del ejercicio 1
@@ -48,42 +47,86 @@ public class Main {
             return 0;
         }
     }
+
     //funcion del ejercicio 5
-    public  static void numParesEImparesHastaCienWhile(){
-        int num=1;
-        while (num<=100){
-            if (num%2==0){
-                System.out.println("el numero "+num+" es par");
-            }else {
-                System.out.println("el numero "+num+" es impar");
+    public static void numParesEImparesHastaCienWhile() {
+        int num = 1;
+        while (num <= 100) {
+            if (num % 2 == 0) {
+                System.out.println("el numero " + num + " es par");
+            } else {
+                System.out.println("el numero " + num + " es impar");
             }
             num++;
         }
     }
+
     //función del ejercicio 6
-    public  static void numParesEImparesHastaCienFor(){
-        for (int num=0;num<=100;num++){
-            if (num%2==0){
-                System.out.println("el numero "+num+" es par");
-            }else {
-                System.out.println("el numero "+num+" es impar");
+    public static void numParesEImparesHastaCienFor() {
+        for (int num = 0; num <= 100; num++) {
+            if (num % 2 == 0) {
+                System.out.println("el numero " + num + " es par");
+            } else {
+                System.out.println("el numero " + num + " es impar");
             }
         }
     }
+
     //funcion del ejercicio 7
-    public static void numeroMayorACero(Scanner scanner){
-        int num=-1;
-        do{
+    public static void numeroMayorACero(Scanner scanner) {
+        int num = -1;
+        do {
             try {
                 System.out.print("Ingrese un numero: ");
-                num= scanner.nextInt();
-                if (num>0)System.out.println(num);
-            }catch (Exception e){
+                num = scanner.nextInt();
+                if (num > 0) System.out.println(num);
+            } catch (Exception e) {
                 System.out.println("Por favor ingrese solo numeros");
                 break;
             }
-        }while (num<1);
+        } while (num < 1);
     }
+
+    //funcion para quitar acentos y pasar a minusculas
+    public static String quitarAcentoYPasarAMinuscula(String cadena){
+        cadena.toUpperCase();
+        cadena = Normalizer.normalize(cadena, Normalizer.Form.NFD);
+        cadena = cadena.replaceAll("[^\\p{ASCII}]", "");
+         return cadena.toLowerCase();
+    }
+
+    //funcion del ejercicio 8
+    public static String diaEsLaboralONoLaboral(String dia) {
+        String esLaboralONo = "";
+        dia= quitarAcentoYPasarAMinuscula(dia);
+        switch (dia) {
+            case "lunes":
+                esLaboralONo = "Laboral";
+                break;
+            case "martes":
+                esLaboralONo = "Laboral";
+                break;
+            case "miercoles":
+                esLaboralONo = "Laboral";
+                break;
+            case "jueves":
+                esLaboralONo = "Laboral";
+                break;
+            case "vienes":
+                esLaboralONo = "Laboral";
+                break;
+            case "sabado":
+                esLaboralONo = "No Laboral";
+                break;
+            case "domingo":
+                esLaboralONo = "No Laboral";
+                break;
+            default:
+                esLaboralONo = "No ingreso un dia, por favor intente nuevamente";
+        }
+        return esLaboralONo;
+    }
+
     public static void main(String[] args) {
         int seleccion;
         String entrada;
@@ -115,9 +158,9 @@ public class Main {
                 case 3:
                     try {
                         System.out.print("Ingrese el valor del radio: ");
-                        entrada= scanner.next();
+                        entrada = scanner.next();
                         entrada = entrada.replace(",", ".");
-                        double radio= Double.parseDouble(entrada);
+                        double radio = Double.parseDouble(entrada);
                         double area = areaCirculo(radio);
                         if (area > 0) {
                             System.out.println("el area de " + radio + " es " + area);
@@ -155,6 +198,9 @@ public class Main {
                     numeroMayorACero(scanner);
                     break;
                 case 8:
+                    System.out.print("Ingrese un dia de la semana: ");
+                    entrada = scanner.next();
+                    System.out.println(diaEsLaboralONoLaboral(entrada));
                     break;
                 case 9:
                     break;
