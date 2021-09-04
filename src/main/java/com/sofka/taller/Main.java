@@ -48,17 +48,26 @@ public class Main {
     }
     //funcion del ejercicio 5
     public  static void numParesEImparesHastaCienWhile(){
-        int i=1;
-        while (i<100){
-            if (i%2==0){
-                System.out.println("el numero "+i+" es par");
+        int num=1;
+        while (num<=100){
+            if (num%2==0){
+                System.out.println("el numero "+num+" es par");
             }else {
-                System.out.println("el numero "+i+" es impar");
+                System.out.println("el numero "+num+" es impar");
             }
-            i++;
+            num++;
         }
     }
     //función del ejercicio 6
+    public  static void numParesEImparesHastaCienFor(){
+        for (int num=0;num<=100;num++){
+            if (num%2==0){
+                System.out.println("el numero "+num+" es par");
+            }else {
+                System.out.println("el numero "+num+" es impar");
+            }
+        }
+    }
 
     public static void main(String[] args) {
         int seleccion;
@@ -125,6 +134,7 @@ public class Main {
                     numParesEImparesHastaCienWhile();
                     break;
                 case 6:
+                    numParesEImparesHastaCienFor();
                     break;
                 case 7:
                     break;
