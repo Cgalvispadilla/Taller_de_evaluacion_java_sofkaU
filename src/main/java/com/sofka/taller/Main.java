@@ -127,6 +127,13 @@ public class Main {
         return esLaboralONo;
     }
 
+    //función del ejercicio 9
+    public static String reemplazarYConcatenar(String miMensaje){
+        String texto="La sonrisa sera la mejor arma contra la tristeza";
+        texto=texto.replace("a","e");
+        return texto+" "+miMensaje;
+    }
+
     public static void main(String[] args) {
         int seleccion;
         String entrada;
@@ -203,6 +210,12 @@ public class Main {
                     System.out.println(diaEsLaboralONoLaboral(entrada));
                     break;
                 case 9:
+                    //configuramos scanner para que nos pueda leer una frase :)
+                    scanner.useDelimiter("\n");
+                    System.out.print("Ingrese una frase por favor: ");
+                    entrada=scanner.next();
+                    System.out.println(entrada);
+                    System.out.println(reemplazarYConcatenar(entrada));
                     break;
                 case 10:
                     break;
