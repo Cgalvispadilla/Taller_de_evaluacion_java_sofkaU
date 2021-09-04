@@ -58,6 +58,8 @@ public class Main {
             i++;
         }
     }
+    //función del ejercicio 6
+
     public static void main(String[] args) {
         int seleccion;
         String entrada;
@@ -89,10 +91,12 @@ public class Main {
                 case 3:
                     try {
                         System.out.print("Ingrese el valor del radio: ");
-                        double radio = scanner.nextDouble();
+                        entrada= scanner.next();
+                        entrada = entrada.replace(",", ".");
+                        double radio= Double.parseDouble(entrada);
                         double area = areaCirculo(radio);
                         if (area > 0) {
-                            System.out.println("el area de" + radio + " es " + area);
+                            System.out.println("el area de " + radio + " es " + area);
                         } else {
                             System.out.println("Un radio nunca puede ser 0 o menor a cero");
                         }
