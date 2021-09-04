@@ -129,7 +129,7 @@ public class Main {
 
     //función del ejercicio 9
     public static String reemplazarYConcatenar(String miMensaje){
-        if(miMensaje.length()>1) {
+        if(miMensaje.split(" ").length>1) {
             String texto = "La sonrisa sera la mejor arma contra la tristeza";
             texto = texto.replace("a", "e");
             return texto + " " + miMensaje;
@@ -141,10 +141,26 @@ public class Main {
 
     //funcion del ejecicio 10
     public static String eliminarEspacioEnTexto(String frase){
-        if(frase.length()>1) {
+        if(frase.split(" ").length>1) {
             return frase.replace(" ", "");
         }else {
             return "No es posible realizar la funcionalidad con una sola palabra o letra, necesita una frase:)";
+        }
+    }
+    //función del ejercicio 11
+    public static void logitudYVocalesDeUnaFrase(String frase){
+        if(frase.split(" ").length>1) {
+            int count=0;
+            int longitud=frase.length();
+            for (int i=0 ; i<longitud; i++){
+                char ch = frase.charAt(i);
+                if(ch == 'a'|| ch == 'e'|| ch == 'i' ||ch == 'o' ||ch == 'u'){
+                    count ++;
+                }
+            }
+            System.out.println("la frase ingresada tiene una logitud de "+longitud+" y "+count+" Vocales");
+        }else {
+            System.out.println("No es posible realizar la funcionalidad con una sola palabra o letra, necesita una frase:)");
         }
     }
     public static void main(String[] args) {
@@ -237,6 +253,11 @@ public class Main {
                     System.out.println(eliminarEspacioEnTexto(entrada));
                     break;
                 case 11:
+                    //configuramos scanner para que nos pueda leer una frase :)
+                    scanner.useDelimiter("\n");
+                    System.out.print("Ingrese una frase por favor: ");
+                    entrada=scanner.next();
+                    logitudYVocalesDeUnaFrase(entrada);
                     break;
                 case 12:
                     break;
