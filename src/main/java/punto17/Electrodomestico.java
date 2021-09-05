@@ -5,8 +5,8 @@ import java.util.List;
 import java.util.Locale;
 
 public class Electrodomestico {
-    private final String TIPO_DE_CONSUMOS = "ABCDEF";
-    private final List<String> COLORES_DISPONIBLES = Arrays.asList("Blanco", "Negro", "Rojo", "Azul", "Gris");
+    static final String TIPO_DE_CONSUMOS = "ABCDEF";
+    static final List<String> COLORES_DISPONIBLES = Arrays.asList("Blanco", "Negro", "Rojo", "Azul", "Gris");
     private double precioBase;
     private String color;
     private char consumoEnergetico;

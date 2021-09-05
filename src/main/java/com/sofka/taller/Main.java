@@ -1,6 +1,7 @@
 package com.sofka.taller;
 
 import punto16.Persona;
+import punto17.Electrodomestico;
 
 import java.util.Scanner;
 
@@ -252,6 +253,8 @@ public class Main {
                     }
                     break;
                 case 17:
+                    Electrodomestico [] misElectrodomesticos= new Electrodomestico[10];
+
                     break;
                 case 18:
                     break;
