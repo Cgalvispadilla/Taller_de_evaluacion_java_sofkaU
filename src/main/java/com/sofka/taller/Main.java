@@ -1,5 +1,7 @@
 package com.sofka.taller;
 
+import punto16.Persona;
+
 import java.text.Normalizer;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -209,11 +211,24 @@ public class Main {
         }
     }
 
+    //funcion para mostrar en que peso esta cada persona
+    public static String comprobarPeso(int n){
+        String auxRes="La persona esta en sobrepeso";
+        if(n==-1){
+            auxRes="La persona esta por debajo de su peso ideal";
+        }else if (n==0){
+            auxRes="La persona esta en su peso ideal";
+        }
+        return  auxRes;
+    }
+
     public static void main(String[] args) {
         int seleccion = 0;
         String entrada;
         do {
             Scanner scanner = new Scanner(System.in);
+            //configuramos scanner para que reciba frases
+            scanner.useDelimiter("\n");
             try {
                 System.out.println("Seleccione un item del menu");
                 System.out.println("1- Ejercicio 1\n2- Ejercicio 2\n3- Ejercicio 3\n4- Ejercicio 4\n5- Ejercicio 5" +
@@ -290,21 +305,16 @@ public class Main {
                     break;
                 case 9:
                     //configuramos scanner para que nos pueda leer una frase :)
-                    scanner.useDelimiter("\n");
                     System.out.print("Ingrese una frase por favor: ");
                     entrada = scanner.next();
                     System.out.println(reemplazarYConcatenar(entrada));
                     break;
                 case 10:
-                    //configuramos scanner para que nos pueda leer una frase :)
-                    scanner.useDelimiter("\n");
                     System.out.print("Ingrese una frase por favor: ");
                     entrada = scanner.next();
                     System.out.println(eliminarEspacioEnTexto(entrada));
                     break;
                 case 11:
-                    //configuramos scanner para que nos pueda leer una frase :)
-                    scanner.useDelimiter("\n");
                     System.out.print("Ingrese una frase por favor: ");
                     entrada = scanner.next();
                     logitudYVocalesDeUnaFrase(entrada);
@@ -375,6 +385,81 @@ public class Main {
                     } while (eleccion != 8);
                     break;
                 case 16:
+                    try {
+
+                        int tipoPeso=0;
+                        boolean esMayorDeEdad=true;
+                        //pedir datos
+                        System.out.print("Ingrese el nombre de la persona: ");
+                        String nombre = scanner.next();
+                        System.out.print("Ingrese la edad de la persona: ");
+                        int edad = scanner.nextInt();
+                        while (edad < 1) {
+                            System.out.println("La edad no es valida");
+                            System.out.print("Ingrese la edad de la persona: ");
+                            edad = scanner.nextInt();
+                        }
+                        System.out.print("Ingrese el sexo de la persona siendo \"H\" hombre y \"M\" mujer : ");
+                        char sexo = scanner.next().charAt(0);
+                        System.out.println(sexo);
+                        System.out.print("Ingrese el peso de la persona: ");
+                        int peso = scanner.nextInt();
+                        while (peso < 1) {
+                            System.out.println("El peso no es valido");
+                            System.out.print("Ingrese el peso de la persona: ");
+                            peso = scanner.nextInt();
+                        }
+                        System.out.print("Ingrese la altura de la persona: ");
+                        entrada = scanner.next();
+                        entrada = entrada.replace(",", ".");
+                        float altura = Float.parseFloat(entrada);
+                        while (altura < 1) {
+                            System.out.println("la altura no es valida");
+                            System.out.print("Ingrese la altura de la persona: ");
+                            altura = scanner.nextFloat();
+                        }
+                        //crear instancias de Persona
+                        Persona persona1 = new Persona(nombre, edad, peso, altura, sexo);
+                        Persona persona2 = new Persona(nombre, edad, sexo);
+                        Persona persona3 = new Persona();
+                        //llenar datos de la persona 3
+                        persona3.setNombre(nombre);
+                        persona3.setEdad(edad);
+                        persona3.setPeso(peso);
+                        persona3.setAltura(altura);
+                        persona3.setSexo(sexo);
+
+                        //comprobar el peso de cada uno de las tres personas
+                        tipoPeso=persona1.calcularIMC();
+                        System.out.println("Persona 1 - "+comprobarPeso(tipoPeso));
+                        tipoPeso=persona2.calcularIMC();
+                        System.out.println("Persona 2 - "+comprobarPeso(tipoPeso));
+                        tipoPeso=persona3.calcularIMC();
+                        System.out.println("Persona 3 - "+comprobarPeso(tipoPeso));
+
+                        //indicar si las personas son mayores de edad o no
+                        esMayorDeEdad=persona1.esMayorDeEdad();
+                        if (esMayorDeEdad){
+                            System.out.println("La persona 1 es mayor de edad");
+                        }
+                        esMayorDeEdad=persona2.esMayorDeEdad();
+                        if (esMayorDeEdad){
+                            System.out.println("la persona 2 es mayor de edad");
+                        }
+                        esMayorDeEdad=persona3.esMayorDeEdad();
+                        if(esMayorDeEdad){
+                            System.out.println("La persona 3 es mayot de edad");
+                        }
+
+                        //información general de todos
+                        System.out.println(persona1.toString());
+                        System.out.println(persona2.toString());
+                        System.out.println(persona3.toString());
+
+
+                    } catch (Exception e) {
+                        System.out.println("Ocurrio un error " + e);
+                    }
                     break;
                 case 17:
                     break;
