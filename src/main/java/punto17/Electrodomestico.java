@@ -116,10 +116,10 @@ public class Electrodomestico {
     public double precioFinal(){
         return precioSegunPeso()+precioSegunConsumoEnergetico();
     }
-    public static void main(String[] args) {
+   /* public static void main(String[] args) {
         Electrodomestico electrodomestico = new Electrodomestico();
         System.out.println(electrodomestico.comprobarConsumoEnergetico('z'));
 
         System.out.println(electrodomestico.comprobarColor("negro"));
-    }
+    }*/
 }
