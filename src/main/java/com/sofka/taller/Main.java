@@ -115,7 +115,7 @@ public class Main {
                     if (palabrasIguales(palabra1, palabra2)) {
                         System.out.println("Las palabras son iguales");
                     } else {
-                        System.out.println("las palabras son diferentes y tienen las siguentes letras distintas " + diferenciaEntreDosPalabras(palabra1, palabra2));
+                        System.out.println(diferenciaEntreDosPalabras(palabra1, palabra2));
                     }
                     break;
                 case 13:

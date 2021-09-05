@@ -169,14 +169,33 @@ public class Funcionalidades {
         }
     }
 
+    public static String direnciaSiSonDiferentesDosPalabras(String palabra1, String palabra2) {
+        String auxRes="";
+        for (int i = 0; i < palabra1.length(); i++) {
+            if (i < palabra2.length()) {
+                if (palabra1.charAt(i) != palabra2.charAt(i)) {
+                    auxRes += "Posicion "+i+" la letra  de la palabra 1 " + palabra1.charAt(i) + " es diferente a la letra " + palabra2.charAt(i)+" de la palabra 2\n";
+                }
+            } else {
+                auxRes += "Posicion " + i + " de la palabra 1 es " + palabra1.charAt(i) + " y no tiene con quien compararse en la palabra 2\n";
+            }
+        }
+        return auxRes;
+    }
+
     //función para encontrar las deferencia entre dos palabras parte de la función 12
     public static String diferenciaEntreDosPalabras(String palabra1, String palabra2) {
-        ArrayList<String> p1=new ArrayList<>(Arrays.asList(palabra1.split("")));
-        ArrayList<String> p2=new ArrayList<>(Arrays.asList(palabra2.split("")));
-        String auxRes="";
-        for (String letra: p1) {
-            if (!p2.contains(letra)){
-                auxRes+=letra;
+        String auxRes = "";
+
+        if (palabra1.length() > palabra2.length()) {
+           auxRes=direnciaSiSonDiferentesDosPalabras(palabra1,palabra2);
+        } else if (palabra2.length() < palabra2.length()) {
+            auxRes=direnciaSiSonDiferentesDosPalabras(palabra2,palabra1);
+        }else {
+            for (int i = 0; i < palabra1.length(); i++) {
+                if (palabra1.charAt(i) != palabra2.charAt(i)) {
+                    auxRes += "Posicion "+i+" la letra  de la palabra 1 " + palabra1.charAt(i) + " es diferente " + palabra2.charAt(i)+" de la palabra 2\n";
+                }
             }
         }
         return auxRes;
@@ -207,13 +226,13 @@ public class Funcionalidades {
     }
 
     //funcion para mostrar en que peso esta cada persona
-    public static String comprobarPeso(int n){
-        String auxRes="La persona esta en sobrepeso";
-        if(n==-1){
-            auxRes="La persona esta por debajo de su peso ideal";
-        }else if (n==0){
-            auxRes="La persona esta en su peso ideal";
+    public static String comprobarPeso(int n) {
+        String auxRes = "La persona esta en sobrepeso";
+        if (n == -1) {
+            auxRes = "La persona esta por debajo de su peso ideal";
+        } else if (n == 0) {
+            auxRes = "La persona esta en su peso ideal";
         }
-        return  auxRes;
+        return auxRes;
     }
 }
