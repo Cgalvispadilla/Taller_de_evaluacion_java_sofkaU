@@ -402,20 +402,22 @@ public class Main {
                         System.out.print("Ingrese el sexo de la persona siendo \"H\" hombre y \"M\" mujer : ");
                         char sexo = scanner.next().charAt(0);
                         System.out.println(sexo);
-                        System.out.print("Ingrese el peso de la persona: ");
+                        System.out.print("Ingrese el peso de la persona en KG: ");
                         int peso = scanner.nextInt();
-                        while (peso < 1) {
+                        //minimo tres KG por si es un bebé prematuro
+                        while (peso < 3) {
                             System.out.println("El peso no es valido");
-                            System.out.print("Ingrese el peso de la persona: ");
+                            System.out.print("Ingrese el peso de la persona en KG: ");
                             peso = scanner.nextInt();
                         }
-                        System.out.print("Ingrese la altura de la persona: ");
+                        System.out.print("Ingrese la altura de la persona en metros: ");
                         entrada = scanner.next();
                         entrada = entrada.replace(",", ".");
                         float altura = Float.parseFloat(entrada);
-                        while (altura < 1) {
+                        //40 cm por si es bebé prematuro
+                        while (altura < 0.40) {
                             System.out.println("la altura no es valida");
-                            System.out.print("Ingrese la altura de la persona: ");
+                            System.out.print("Ingrese la altura de la persona en metros: ");
                             altura = scanner.nextFloat();
                         }
                         //crear instancias de Persona
