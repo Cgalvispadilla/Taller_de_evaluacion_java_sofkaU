@@ -2,7 +2,6 @@ package punto17;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Locale;
 
 public class Electrodomestico {
     static final String TIPO_DE_CONSUMOS = "ABCDEF";
@@ -114,12 +113,6 @@ public class Electrodomestico {
     }
 
     public double precioFinal(){
-        return precioSegunPeso()+precioSegunConsumoEnergetico();
+        return getPrecioBase()+precioSegunPeso()+precioSegunConsumoEnergetico();
     }
-   /* public static void main(String[] args) {
-        Electrodomestico electrodomestico = new Electrodomestico();
-        System.out.println(electrodomestico.comprobarConsumoEnergetico('z'));
-
-        System.out.println(electrodomestico.comprobarColor("negro"));
-    }*/
 }

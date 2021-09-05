@@ -2,6 +2,8 @@ package com.sofka.taller;
 
 import punto16.Persona;
 import punto17.Electrodomestico;
+import punto17.Lavadora;
+import punto17.Televisor;
 
 import java.util.Scanner;
 
@@ -253,8 +255,48 @@ public class Main {
                     }
                     break;
                 case 17:
-                    Electrodomestico [] misElectrodomesticos= new Electrodomestico[10];
+                    double acumPrecioElectrodomesticos=0,acumPrecioLavadoras=0, acumPrecioTelevisores=0;
+                    //creacion de objetos para llenar el array
+                    //electrodomesticos
+                    Electrodomestico miLicuadora = new Electrodomestico();
+                    Electrodomestico miSanduchera = new Electrodomestico(100000,1);
+                    Electrodomestico miPortatil = new Electrodomestico(1700000,3);
+                    Electrodomestico miVentilador = new Electrodomestico(150000,"blanco",'g',7);
+                    //lavadoras
+                    Lavadora miLavadora1 = new Lavadora();
+                    Lavadora miLavadora2 = new Lavadora(200000,10);
+                    Lavadora miLavadora3 = new Lavadora(300000,"Rojo",'B',15,30);
+                    //televisores
+                    Televisor miTelevisor = new Televisor();
+                    Televisor miTelevisor2 = new Televisor(600000,10);
+                    Televisor miTelevisor3 = new Televisor(1800000,"lila",'F',8,50,true);
+                    //llenar datos
+                    Electrodomestico [] misElectrodomesticos = {miLicuadora,
+                                                                miSanduchera,
+                                                                miPortatil,
+                                                                miVentilador,
+                                                                miLavadora1,
+                                                                miLavadora2,
+                                                                miLavadora3,
+                                                                miTelevisor,
+                                                                miTelevisor2,
+                                                                miTelevisor3};
 
+                    for (Electrodomestico e: misElectrodomesticos) {
+                        if(e instanceof Electrodomestico ){
+                            acumPrecioElectrodomesticos+=e.precioFinal();
+                        }
+                        if (e instanceof  Lavadora){
+                            acumPrecioLavadoras+=e.precioFinal();
+                        }
+                        if(e instanceof  Televisor){
+                            acumPrecioTelevisores+=e.precioFinal();
+                        }
+                    }
+                    double precioTotal=acumPrecioElectrodomesticos+acumPrecioLavadoras+acumPrecioTelevisores;
+                    System.out.println("EL precio de los electrodomesticos es "+acumPrecioElectrodomesticos+" COP, el precio de " +
+                            "las lavadoras es "+acumPrecioLavadoras+" COP y el precio de los televisores es "+acumPrecioTelevisores+
+                            " para un precio total de "+precioTotal+" COP");
                     break;
                 case 18:
                     break;

@@ -1,24 +1,24 @@
 package punto17;
 
-public class Television extends Electrodomestico{
+public class Televisor extends Electrodomestico{
     static final int resolucionPorDefecto=20;
     static final boolean sintonizadorTDTPorDefecto=false;
     private int resolucionEnPulgadas;
     private boolean sintonizadorTDT;
 
-    public Television() {
+    public Televisor() {
         super();
         this.resolucionEnPulgadas = resolucionPorDefecto;
         this.sintonizadorTDT = sintonizadorTDTPorDefecto;
     }
 
-    public Television(double precioBase, int peso) {
+    public Televisor(double precioBase, int peso) {
         super(precioBase, peso);
         this.resolucionEnPulgadas =resolucionPorDefecto;
         this.sintonizadorTDT = sintonizadorTDTPorDefecto;
     }
 
-    public Television(double precioBase, String color, char consumoEnergetico, int peso, int resolucion, boolean sintonizadorTDT) {
+    public Televisor(double precioBase, String color, char consumoEnergetico, int peso, int resolucion, boolean sintonizadorTDT) {
         super(precioBase, color, consumoEnergetico, peso);
         this.resolucionEnPulgadas = resolucion;
         this.sintonizadorTDT = sintonizadorTDT;
