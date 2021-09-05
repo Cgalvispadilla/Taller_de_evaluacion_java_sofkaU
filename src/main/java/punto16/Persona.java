@@ -1,7 +1,7 @@
 package punto16;
 
 public class Persona {
-    private static final char SEXO_POR_DEFECTO = 'H';
+    private final char SEXO_POR_DEFECTO = 'H';
     private String nombre;
     private int edad, DNI, peso;
     private float altura;
@@ -34,46 +34,6 @@ public class Persona {
         generaDNI();
     }
 
-    public int calcularIMC() {
-        int auxRes = 0;
-        double IMC = (this.peso / Math.pow(this.altura, 2));
-        if (IMC < 20) {
-            auxRes = -1;
-        } else if (IMC >= 20 && IMC <= 25) {
-            auxRes = 0;
-        } else {
-            auxRes = 1;
-        }
-        return auxRes;
-    }
-    public boolean esMayorDeEdad(){
-        if(this.edad<18){
-            return false;
-        }
-        return true;
-    }
-    private char comprobarSexo(char sexo){
-        char s=SEXO_POR_DEFECTO;
-        if("M".equals(sexo)){
-            s = 'M';
-        }
-        return s;
-    }
-    @Override
-    public String toString() {
-        return "Persona{" +
-                "nombre='" + nombre + '\'' +
-                ", edad=" + edad +
-                ", DNI=" + DNI +
-                ", peso=" + peso +
-                ", altura=" + altura +
-                ", sexo=" + sexo +
-                '}';
-    }
-    private void generaDNI(){
-        this.DNI= (int)(100000000 * Math.random());
-    }
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -93,4 +53,50 @@ public class Persona {
     public void setSexo(char sexo) {
         this.sexo = sexo;
     }
+
+    public int calcularIMC() {
+        int auxRes = 0;
+        double IMC = (this.peso / Math.pow(this.altura, 2));
+        if (IMC < 20) {
+            auxRes = -1;
+        } else if (IMC >= 20 && IMC <= 25) {
+            auxRes = 0;
+        } else {
+            auxRes = 1;
+        }
+        return auxRes;
+    }
+
+    public boolean esMayorDeEdad() {
+        if (this.edad < 18) {
+            return false;
+        }
+        return true;
+    }
+
+    private char comprobarSexo(char sexo) {
+        char s = SEXO_POR_DEFECTO;
+        if ("M".equals(sexo)) {
+            s = 'M';
+        }
+        return s;
+    }
+
+    @Override
+    public String toString() {
+        return "Persona{" +
+                "nombre='" + nombre + '\'' +
+                ", edad=" + edad +
+                ", DNI=" + DNI +
+                ", peso=" + peso +
+                ", altura=" + altura +
+                ", sexo=" + sexo +
+                '}';
+    }
+
+    private void generaDNI() {
+        this.DNI = (int) (100000000 * Math.random());
+    }
+
+
 }
