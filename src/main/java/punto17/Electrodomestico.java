@@ -1,9 +1,12 @@
 package punto17;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Locale;
 
 public class Electrodomestico {
     private final String TIPO_DE_CONSUMOS ="ABCDEF";
+    private final List<String> COLORES_DISPONIBLES= Arrays.asList("Blanco","Negro","Rojo","Azul", "Gris");
     private double precioBase;
     private String color;
     private char consumoEnergetico;
@@ -54,9 +57,22 @@ public class Electrodomestico {
         }
         return 'F';
     }
-
+    private String comprobarColor(String color){
+        final String[] colorAux = {"blanco"};
+        COLORES_DISPONIBLES.forEach(s ->{
+            if(s.equalsIgnoreCase(color)){
+                colorAux[0] =color;
+            }
+        }
+        );
+        return colorAux[0];
+    }
     public static void main(String[] args) {
         Electrodomestico electrodomestico=new Electrodomestico();
         System.out.println(electrodomestico.comprobarConsumoEnergetico('z'));
+
+        System.out.println(electrodomestico.comprobarColor("negro"));
     }
+
+
 }
