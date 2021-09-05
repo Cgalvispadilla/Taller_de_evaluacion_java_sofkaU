@@ -1,4 +1,5 @@
 package com.sofka.taller;
+
 import java.text.Normalizer;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -90,17 +91,17 @@ public class Main {
     }
 
     //funcion para quitar acentos y pasar a minusculas
-    public static String quitarAcentoYPasarAMinuscula(String cadena){
+    public static String quitarAcentoYPasarAMinuscula(String cadena) {
         cadena.toUpperCase();
         cadena = Normalizer.normalize(cadena, Normalizer.Form.NFD);
         cadena = cadena.replaceAll("[^\\p{ASCII}]", "");
-         return cadena.toLowerCase();
+        return cadena.toLowerCase();
     }
 
     //funcion del ejercicio 8
     public static String diaEsLaboralONoLaboral(String dia) {
         String esLaboralONo = "";
-        dia= quitarAcentoYPasarAMinuscula(dia);
+        dia = quitarAcentoYPasarAMinuscula(dia);
         switch (dia) {
             case "lunes":
                 esLaboralONo = "El Lunes es laboral";
@@ -130,89 +131,99 @@ public class Main {
     }
 
     //función del ejercicio 9
-    public static String reemplazarYConcatenar(String miMensaje){
-        if(miMensaje.split(" ").length>1) {
+    public static String reemplazarYConcatenar(String miMensaje) {
+        if (miMensaje.split(" ").length > 1) {
             String texto = "La sonrisa sera la mejor arma contra la tristeza";
             texto = texto.replace("a", "e");
             return texto + " " + miMensaje;
-        }else {
+        } else {
             return "No es posible realizar la funcionalidad con una sola palabra o letra, necesita una frase:)";
         }
     }
 
 
     //funcion del ejecicio 10
-    public static String eliminarEspacioEnTexto(String frase){
-        if(frase.split(" ").length>1) {
+    public static String eliminarEspacioEnTexto(String frase) {
+        if (frase.split(" ").length > 1) {
             return frase.replace(" ", "");
-        }else {
+        } else {
             return "No es posible realizar la funcionalidad con una sola palabra o letra, necesita una frase:)";
         }
     }
+
     //función del ejercicio 11
-    public static void logitudYVocalesDeUnaFrase(String frase){
-        if(frase.split(" ").length>1) {
-            int count=0;
-            int longitud=frase.length();
-            for (int i=0 ; i<longitud; i++){
+    public static void logitudYVocalesDeUnaFrase(String frase) {
+        if (frase.split(" ").length > 1) {
+            int count = 0;
+            int longitud = frase.length();
+            for (int i = 0; i < longitud; i++) {
                 char ch = frase.charAt(i);
-                if(ch == 'a'|| ch == 'e'|| ch == 'i' ||ch == 'o' ||ch == 'u'){
-                    count ++;
+                if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+                    count++;
                 }
             }
-            System.out.println("la frase ingresada tiene una logitud de "+longitud+" y "+count+" Vocales");
-        }else {
+            System.out.println("la frase ingresada tiene una logitud de " + longitud + " y " + count + " Vocales");
+        } else {
             System.out.println("No es posible realizar la funcionalidad con una sola palabra o letra, necesita una frase:)");
         }
     }
+
     //función para encontrar las deferencia entre dos palabras parte de la función 12
     public static String diferenciaEntreDosPalabras(String palabra1, String palabra2) {
         int[] caracteres = new int[26];
         for (char c : palabra1.toCharArray()) {
-            caracteres[c-'a']=1;
+            caracteres[c - 'a'] = 1;
         }
         for (char c : palabra2.toCharArray()) {
-            caracteres[c-'a']=1;
+            caracteres[c - 'a'] = 1;
         }
         StringBuilder diferencia = new StringBuilder(26);
         for (int i = 0; i < caracteres.length; i++) {
             if (caracteres[i] > 0)
-                diferencia.append ((char)(i+'a'));
+                diferencia.append((char) (i + 'a'));
         }
         return diferencia.toString();
     }
+
     //funcion del ejercicio 12
-    public static Boolean palabrasIguales(String palabra1, String palabra2){
-        return palabra1.equals(palabra2)?true:false;
+    public static Boolean palabrasIguales(String palabra1, String palabra2) {
+        return palabra1.equals(palabra2) ? true : false;
     }
+
     //función del ejercicio 13
-    public static String verFechaHoraActual(){
+    public static String verFechaHoraActual() {
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/YYYY hh:mm:ss");
-        String dateString=sdf.format(cal.getTime());
+        String dateString = sdf.format(cal.getTime());
         return dateString;
     }
+
     //funcion del ejercicio 14
-    public static void numerosDeDosEnDosHastaMil(int num){
-        if(num>0 && num<=1000){
-            for (int numero = num; numero <1001; numero+=2) {
-                System.out.println("numero: "+numero);
+    public static void numerosDeDosEnDosHastaMil(int num) {
+        if (num > 0 && num <= 1000) {
+            for (int numero = num; numero < 1001; numero += 2) {
+                System.out.println("numero: " + numero);
             }
-        }else {
+        } else {
             System.out.println("Por favor ingrese un numero de 1 a 1000.");
         }
     }
+
     public static void main(String[] args) {
-        int seleccion;
+        int seleccion = 0;
         String entrada;
         do {
-            System.out.println("Seleccione un item del menu");
-            System.out.println("1- Ejercicio 1\n2- Ejercicio 2\n3- Ejercicio 3\n4- Ejercicio 4\n5- Ejercicio 5" +
-                    "\n6- Ejercicio 6\n7- Ejercicio 7\n8- Ejercicio 8\n9- Ejercicio 9\n10- Ejercicio 10" +
-                    "\n11- Ejercicio 11\n12- Ejercicio 12\n13- Ejercicio 13\n14- Ejercicio 14\n15- Ejercicio 15" +
-                    "\n16- Ejercicio 16\n17- Ejercicio 17\n18- Ejercicio 18\n19- Salir");
             Scanner scanner = new Scanner(System.in);
-            seleccion = scanner.nextInt();
+            try {
+                System.out.println("Seleccione un item del menu");
+                System.out.println("1- Ejercicio 1\n2- Ejercicio 2\n3- Ejercicio 3\n4- Ejercicio 4\n5- Ejercicio 5" +
+                        "\n6- Ejercicio 6\n7- Ejercicio 7\n8- Ejercicio 8\n9- Ejercicio 9\n10- Ejercicio 10" +
+                        "\n11- Ejercicio 11\n12- Ejercicio 12\n13- Ejercicio 13\n14- Ejercicio 14\n15- Ejercicio 15" +
+                        "\n16- Ejercicio 16\n17- Ejercicio 17\n18- Ejercicio 18\n19- Salir");
+                seleccion = scanner.nextInt();
+            } catch (Exception e) {
+                System.out.println("Ingrese solo un numero entre 1 y 19");
+            }
 
             switch (seleccion) {
 
@@ -281,53 +292,95 @@ public class Main {
                     //configuramos scanner para que nos pueda leer una frase :)
                     scanner.useDelimiter("\n");
                     System.out.print("Ingrese una frase por favor: ");
-                    entrada=scanner.next();
+                    entrada = scanner.next();
                     System.out.println(reemplazarYConcatenar(entrada));
                     break;
                 case 10:
                     //configuramos scanner para que nos pueda leer una frase :)
                     scanner.useDelimiter("\n");
                     System.out.print("Ingrese una frase por favor: ");
-                    entrada=scanner.next();
+                    entrada = scanner.next();
                     System.out.println(eliminarEspacioEnTexto(entrada));
                     break;
                 case 11:
                     //configuramos scanner para que nos pueda leer una frase :)
                     scanner.useDelimiter("\n");
                     System.out.print("Ingrese una frase por favor: ");
-                    entrada=scanner.next();
+                    entrada = scanner.next();
                     logitudYVocalesDeUnaFrase(entrada);
                     break;
                 case 12:
                     System.out.print("ingrese una palabra: ");
-                    String palabra1=scanner.next();
+                    String palabra1 = scanner.next();
                     System.out.print("ingrese otra palabra: ");
-                    String palabra2=scanner.next();
-                    if (palabrasIguales(palabra1,palabra2)){
+                    String palabra2 = scanner.next();
+                    if (palabrasIguales(palabra1, palabra2)) {
                         System.out.println("Las palabras son iguales");
-                    }else {
-                        System.out.println("las palabras son diferentes y tienen las siguentes letras distintas "+diferenciaEntreDosPalabras(palabra1,palabra2));
+                    } else {
+                        System.out.println("las palabras son diferentes y tienen las siguentes letras distintas " + diferenciaEntreDosPalabras(palabra1, palabra2));
                     }
                     break;
                 case 13:
-                    System.out.println("fecha y hora actual: "+verFechaHoraActual());
+                    System.out.println("fecha y hora actual: " + verFechaHoraActual());
                     break;
                 case 14:
                     try {
                         System.out.print("Ingrese un numero: ");
-                        int num=scanner.nextInt();
+                        int num = scanner.nextInt();
                         numerosDeDosEnDosHastaMil(num);
-                    }catch (Exception e){
+                    } catch (Exception e) {
                         System.out.println("ocurrio un error " + e + " Posiblemente porque no ingreso un numero");
                     }
                     break;
                 case 15:
+                    int eleccion = 0;
+                    do {
+                        try {
+                            System.out.println("****** GESTION CINEMATOGRÁFICA ********\n" +
+                                    "1-NUEVO ACTOR\n" +
+                                    "2-BUSCAR ACTOR\n" +
+                                    "3-ELIMINAR ACTOR\n" +
+                                    "4-MODIFICAR ACTOR\n" +
+                                    "5-VER TODOS LOS ACTORES\n" +
+                                    "6- VER PELICULAS DE LOS ACTORES\n" +
+                                    "7-VER CATEGORIA DE LAS PELICULAS DE LOS ACTORES\n" +
+                                    "8-SALIR");
+
+                            eleccion = scanner.nextInt();
+                            switch (eleccion) {
+                                case 1:
+                                    break;
+                                case 2:
+                                    break;
+                                case 3:
+                                    break;
+                                case 4:
+                                    break;
+                                case 5:
+                                    break;
+                                case 6:
+                                    break;
+                                case 7:
+                                    break;
+                                case 8:
+                                    break;
+                                default:
+                                    System.out.println("OPCION INCORRECTO");
+                                    break;
+                            }
+                        } catch (Exception e) {
+                            System.out.println("Error " + e + " probablemente por no ingresar un numero");
+                            scanner.next();
+                        }
+                    } while (eleccion != 8);
                     break;
                 case 16:
                     break;
                 case 17:
                     break;
                 case 18:
+                    break;
+                case 19:
                     break;
                 default:
                     System.out.println("Por favor escoge una opción valida");
