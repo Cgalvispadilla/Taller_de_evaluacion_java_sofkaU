@@ -1,9 +1,8 @@
 package com.sofka.taller;
 
 import punto16.Persona;
-import punto17.Electrodomestico;
-import punto17.Lavadora;
-import punto17.Televisor;
+import punto17.*;
+
 
 import java.util.Scanner;
 
