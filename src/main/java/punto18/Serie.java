@@ -1,20 +1,22 @@
 package punto18;
 
 public class Serie implements Entregable{
+    static final boolean  ESTADO_ENTREGADO = false;
+    static final int TEMPORADAS_POR_DEFECTO=0;
     private String titulo, genero, creador;
     private int temporadas;
     private boolean entregado;
 
     public Serie(){
-        this.temporadas=3;
-        this.entregado=false;
+        this.temporadas=TEMPORADAS_POR_DEFECTO;
+        this.entregado=ESTADO_ENTREGADO;
         this.titulo="";
         this.genero="";
         this.creador="";
     }
-    private Serie(String titulo, String creador){
-        this.temporadas=3;
-        this.entregado=false;
+    public Serie(String titulo, String creador){
+        this.temporadas=TEMPORADAS_POR_DEFECTO;
+        this.entregado=ESTADO_ENTREGADO;
         this.titulo=titulo;
         this.creador=creador;
         this.genero="";

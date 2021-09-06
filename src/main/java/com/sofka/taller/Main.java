@@ -2,6 +2,8 @@ package com.sofka.taller;
 
 import punto16.Persona;
 import punto17.*;
+import punto18.Serie;
+import punto18.Videojuego;
 
 
 import java.util.Scanner;
@@ -298,6 +300,58 @@ public class Main {
                             " para un precio total de "+precioTotal+" COP");
                     break;
                 case 18:
+                    Serie miSerie1 = new Serie();
+                    Serie miSerie2 = new Serie("game of thrones","David Benioff");
+                    Serie miSerie3 = new Serie("Breaking Bad","Drama", "Vince Gilligan", 5);
+                    Serie miSerie4 = new Serie("Peaky Blinders","Crime", "Steven Knight", 6);
+                    Serie miSerie5 = new Serie("Los Simpson","Matt Groening");
+                    Serie[] misSeries ={miSerie1, miSerie2, miSerie3, miSerie4, miSerie5};
+                    Videojuego miVideojuego1 = new Videojuego();
+                    Videojuego miVideojuego2 = new Videojuego("Halo 5",300);
+                    Videojuego miVideojuego3 = new Videojuego("Call of duty: Cold war","Shoter","Activition",100);
+                    Videojuego miVideojuego4 = new Videojuego("League of legends","MOBA","Riot game",100000);
+                    Videojuego miVideojuego5 = new Videojuego("Halo 2",200);
+
+                    Videojuego[] misVideojuegos={miVideojuego1, miVideojuego2, miVideojuego3, miVideojuego4, miVideojuego5};
+
+                    misSeries[2].entregar();
+                    misSeries[3].entregar();
+                    misSeries[4].entregar();
+                    misVideojuegos[2].entregar();
+                    misVideojuegos[3].entregar();
+                    misVideojuegos[4].entregar();
+
+
+                    int cantidadEntregados=0;
+                    for (Serie s: misSeries) {
+                        if (s.isEntregado()){
+                            cantidadEntregados+=1;
+                            s.devolver();
+                        }
+                    }
+                    for (Videojuego v: misVideojuegos) {
+                        if (v.isEntregado()){
+                            cantidadEntregados+=1;
+                            v.devolver();
+                        }
+                    }
+                    System.out.println("Existen "+cantidadEntregados +" entregados entre videojuegos y series");
+
+                    Videojuego miVideoJuegoConMasHoras = misVideojuegos[0];
+                    Serie miSerieConMasTemporadas = misSeries[0];
+
+                    for (int iterador = 1; iterador < misVideojuegos.length; iterador++) {
+                        if (misVideojuegos[iterador].compareTo(miVideoJuegoConMasHoras)==1){
+                            miVideoJuegoConMasHoras=misVideojuegos[iterador];
+                        }
+                        if (misSeries[iterador].compareTo(miSerieConMasTemporadas)==1){
+                            miSerieConMasTemporadas=misSeries[iterador];
+                        }
+                    }
+
+                    System.out.println("el videojuego con más horas "+miVideoJuegoConMasHoras.toString());
+                    System.out.println("la serie con más temporadas "+miSerieConMasTemporadas.toString());
+
                     break;
                 case 19:
                     break;
