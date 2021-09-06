@@ -1,6 +1,6 @@
 package punto18;
 
-public class Serie {
+public class Serie implements Entregable{
     private String titulo, genero, creador;
     private int temporadas;
     private boolean entregado;
@@ -69,5 +69,33 @@ public class Serie {
                 ", temporadas=" + temporadas +
                 ", entregado=" + entregado +
                 '}';
+    }
+
+    @Override
+    public void entregar() {
+        this.entregado=true;
+    }
+
+    @Override
+    public void devolver() {
+        this.entregado=false;
+    }
+
+    @Override
+    public boolean isEntregado() {
+        return this.entregado;
+    }
+
+    @Override
+    public int compareTo(Object a) {
+        //La serie con más temporadas retornara 1, 0 si son iguales y -1 si es menor :)
+        int auxRes=-1;
+        Serie miSerie= (Serie) a;
+        if (this.temporadas>miSerie.getTemporadas()){
+            auxRes=1;
+        }else if(this.temporadas==miSerie.getTemporadas()){
+            auxRes=0;
+        }
+        return auxRes;
     }
 }

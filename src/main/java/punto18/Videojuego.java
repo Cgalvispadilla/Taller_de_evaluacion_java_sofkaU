@@ -1,13 +1,17 @@
 package punto18;
 
-public class Videojuego {
+public class Videojuego implements Entregable{
+
+    static final int HORAS_ESTIMADAS_POR_DEFECTO=10;
+    static final boolean  ESTADO_ENTREGADO = false;
+
     private  String titulo, genero, compania;
     private  int horasEstimadas;
     private boolean entregado;
 
     public Videojuego() {
-        this.horasEstimadas=10;
-        this.entregado=false;
+        this.horasEstimadas=HORAS_ESTIMADAS_POR_DEFECTO;
+        this.entregado=ESTADO_ENTREGADO;
         this.titulo="";
         this.genero="";
         this.compania="";
@@ -18,7 +22,7 @@ public class Videojuego {
         this.horasEstimadas = horasEstimadas;
         this.compania="";
         this.genero="";
-        this.entregado=false;
+        this.entregado=ESTADO_ENTREGADO;
     }
 
     public Videojuego(String titulo, String genero, String compania, int horasEstimadas) {
@@ -26,6 +30,7 @@ public class Videojuego {
         this.genero = genero;
         this.compania = compania;
         this.horasEstimadas = horasEstimadas;
+        this.entregado=ESTADO_ENTREGADO;
     }
 
     public String getTitulo() {
@@ -69,5 +74,33 @@ public class Videojuego {
                 ", horas Estimadas=" + horasEstimadas +
                 ", entregado=" + entregado +
                 '}';
+    }
+
+    @Override
+    public void entregar() {
+        this.entregado=true;
+    }
+
+    @Override
+    public void devolver() {
+        this.entregado=false;
+    }
+
+    @Override
+    public boolean isEntregado() {
+        return this.entregado;
+    }
+
+    @Override
+    public int compareTo(Object a) {
+        //el videojuego con más hora retornara 1, 0 si son iguales y -1 si es menor :)
+        int auxRes=-1;
+        Videojuego miVideojuego= (Videojuego) a;
+        if (this.horasEstimadas>miVideojuego.horasEstimadas){
+            auxRes=1;
+        }else if(this.horasEstimadas==miVideojuego.getHorasEstimadas()){
+            auxRes=0;
+        }
+        return auxRes;
     }
 }

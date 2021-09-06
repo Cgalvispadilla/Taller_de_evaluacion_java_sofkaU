@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Electrodomestico {
+    static final double PRECIO_BASE_POR_DEFECTO=100;
+    static final int PESO_POR_DEFECTO=5;
     static final String TIPO_DE_CONSUMOS = "ABCDEF";
     static final List<String> COLORES_DISPONIBLES = Arrays.asList("Blanco", "Negro", "Rojo", "Azul", "Gris");
     private double precioBase;
@@ -14,8 +16,8 @@ public class Electrodomestico {
     public Electrodomestico() {
         this.color = comprobarColor(this.color);
         this.consumoEnergetico = comprobarConsumoEnergetico(this.consumoEnergetico);
-        this.precioBase = 100;
-        this.peso = 5;
+        this.precioBase = PRECIO_BASE_POR_DEFECTO;
+        this.peso = PESO_POR_DEFECTO;
     }
 
     public Electrodomestico(double precioBase, String color, char consumoEnergetico, int peso) {
