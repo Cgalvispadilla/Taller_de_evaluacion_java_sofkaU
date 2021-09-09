@@ -1,1 +1,2 @@
-# Taller_de_evaluacion_java_sofkaU
+# Taller de java para sofkaU
+El proyecto fue creado en java 11
