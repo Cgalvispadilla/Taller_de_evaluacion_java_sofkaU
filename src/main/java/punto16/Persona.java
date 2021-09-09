@@ -1,9 +1,13 @@
 package punto16;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class Persona {
-    private final char SEXO_POR_DEFECTO = 'H';
-    private String nombre;
-    private int edad, DNI, peso;
+    static final char SEXO_POR_DEFECTO = 'H';
+    static final List<String> LETRAS_DNI= Arrays.asList("T","R","W","A","G","M","Y","F","P","D","X","B","N","J","Z","S","Q","V","H","L","C","K","E");
+    private String nombre, DNI;
+    private int edad, peso;
     private float altura;
     private char sexo;
 
@@ -95,7 +99,9 @@ public class Persona {
     }
 
     private void generaDNI() {
-        this.DNI = (int) (100000000 * Math.random());
+        int numeroDNI = (int) (100000000 * Math.random());
+        int resto = numeroDNI % 23;
+        this.DNI =numeroDNI+"-"+LETRAS_DNI.get(resto);
     }
 
 

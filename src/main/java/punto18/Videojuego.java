@@ -77,7 +77,7 @@ public class Videojuego implements Entregable{
     }
 
     @Override
-    public void entregar() {
+    public void prestar() {
         this.entregado=true;
     }
 
@@ -87,7 +87,7 @@ public class Videojuego implements Entregable{
     }
 
     @Override
-    public boolean isEntregado() {
+    public boolean isPrestado() {
         return this.entregado;
     }
 

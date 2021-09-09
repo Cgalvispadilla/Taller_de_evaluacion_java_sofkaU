@@ -74,7 +74,7 @@ public class Serie implements Entregable{
     }
 
     @Override
-    public void entregar() {
+    public void prestar() {
         this.entregado=true;
     }
 
@@ -84,7 +84,7 @@ public class Serie implements Entregable{
     }
 
     @Override
-    public boolean isEntregado() {
+    public boolean isPrestado() {
         return this.entregado;
     }
 

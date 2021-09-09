@@ -193,7 +193,6 @@ public class Main {
                         }
                         System.out.print("Ingrese el sexo de la persona siendo \"H\" hombre y \"M\" mujer : ");
                         char sexo = scanner.next().charAt(0);
-                        System.out.println(sexo);
                         System.out.print("Ingrese el peso de la persona en KG: ");
                         int peso = scanner.nextInt();
                         //minimo tres KG por si es un bebé prematuro
@@ -314,23 +313,23 @@ public class Main {
 
                     Videojuego[] misVideojuegos={miVideojuego1, miVideojuego2, miVideojuego3, miVideojuego4, miVideojuego5};
 
-                    misSeries[2].entregar();
-                    misSeries[3].entregar();
-                    misSeries[4].entregar();
-                    misVideojuegos[2].entregar();
-                    misVideojuegos[3].entregar();
-                    misVideojuegos[4].entregar();
+                    misSeries[2].prestar();
+                    misSeries[3].prestar();
+                    misSeries[4].prestar();
+                    misVideojuegos[2].prestar();
+                    misVideojuegos[3].prestar();
+                    misVideojuegos[4].prestar();
 
 
                     int cantidadEntregados=0;
                     for (Serie s: misSeries) {
-                        if (s.isEntregado()){
+                        if (s.isPrestado()){
                             cantidadEntregados+=1;
                             s.devolver();
                         }
                     }
                     for (Videojuego v: misVideojuegos) {
-                        if (v.isEntregado()){
+                        if (v.isPrestado()){
                             cantidadEntregados+=1;
                             v.devolver();
                         }
