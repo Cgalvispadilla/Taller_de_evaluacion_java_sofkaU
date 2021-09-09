@@ -2,7 +2,7 @@ package punto18;
 
 public class Serie implements Entregable{
     static final boolean  ESTADO_ENTREGADO = false;
-    static final int TEMPORADAS_POR_DEFECTO=0;
+    static final int TEMPORADAS_POR_DEFECTO=3;
     private String titulo, genero, creador;
     private int temporadas;
     private boolean entregado;
